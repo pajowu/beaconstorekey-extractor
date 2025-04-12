@@ -3,6 +3,8 @@
 This repository describes the process and provides the tools that allows extracting the aes key used by Apples searchpartyd (the deamon amongst other things powering FindMy on macOS) to encrypt its files.
 _This procedure should work at least for macOS 15 (Sequoia)_
 
+Extracting this key only needs to be done once, it can be used the decrypt the searchpartyd-files afterwards again and again.
+
 > **Warning:** This procedure requires to temporarily disable some of macOS' security features! Use at your own risk.
 
 ## Credits
