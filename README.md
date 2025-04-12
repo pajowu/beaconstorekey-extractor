@@ -5,7 +5,8 @@ _This procedure should work at least for macOS 15 (Sequoia)_
 
 Extracting this key only needs to be done once, it can be used the decrypt the searchpartyd-files afterwards again and again.
 
-> **Warning:** This procedure requires to temporarily disable some of macOS' security features! Use at your own risk.
+> [!Warning]
+> This procedure requires to temporarily disable some of macOS' security features! Use at your own risk.
 
 ## Credits
 
@@ -13,7 +14,8 @@ This repo and the description below is derived from seemoolab's [airdrop-keychai
 
 ## 1. Disable System Integrity Protection
 
-> **Warning:** This steps disables some of macOS' security features! Use at your own risk. Please continue until Step 4 to re-enabled them!
+> [!Warning]
+> This steps disables some of macOS' security features! Use at your own risk. Please continue until Step 4 to re-enabled them!
 
 Since macOS 15 (Sequoia), the BeaconStoreKey can only be queried from the keychain by binaries which have the correct `keychain-access-group`-entitlement (`com.apple.icloud.searchpartyuseragent`).
 Since this is an Apple-internal entitlement, we have to disable `amfid` that checks binary signatures and enforces the system's policies.
