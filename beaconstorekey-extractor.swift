@@ -19,8 +19,6 @@ let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                             kSecAttrService as String: "BeaconStore",
                             kSecMatchLimit as String: kSecMatchLimitOne,
                             kSecReturnData as String: true,
-                                                        kSecReturnAttributes as String: true,
-
                             ]
 
 var item: CFTypeRef?
@@ -29,12 +27,9 @@ let errorDescription = SecCopyErrorMessageString(status,nil)
 
 guard status != errSecItemNotFound else { throw ExtractorError.notFound }
 guard status == errSecSuccess else { throw ExtractorError.keychainError(status: status, description: errorDescription!) }
-guard let existingItem = item as? [String : Any] else  { throw ExtractorError.invalid }
+guard let data = item as? Data else  { throw ExtractorError.invalid };
 
-print(existingItem)
-// guard let data = item as? Data else  { throw ExtractorError.invalid };
+let hexString = data.map { String(format: "%02hhx", $0) }.joined()
 
-// let hexString = data.map { String(format: "%02hhx", $0) }.joined()
-
-// print("Found key in keychain:")
-// print(hexString)
+print("Found key in keychain:")
+print(hexString)
